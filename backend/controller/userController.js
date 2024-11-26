@@ -17,8 +17,8 @@ export const register = async(req,res) => {
         if (!data) {
             return res.status(500).send("error creating User");
         }
-        await sendEmail(userData.email, 'Successfully Registered!!', `Hello ${userData.name}, You have been successfully registered on Campus Voice Hub. Kindly login. Thank you.`);
-        return res.status(200).send(data) ;
+        sendEmail(userData.email, 'Successfully Registered!!', `Hello ${userData.name}, You have been successfully registered on Campus Voice Hub. Kindly login. Thank you.`);
+        return res.status(200).send(data) ; 
 
     } catch(e) {
         console.log(e);

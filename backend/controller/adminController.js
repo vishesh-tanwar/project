@@ -47,23 +47,45 @@ export const allGrievances = async(req,res) => {
     }
 }
 
-export const updateGrievance = async(req,res) => {
-    const {grievanceId} = req.params ;
-    const data = req.body ;
-    if (!data.action) { 
-        return res.status(404).send("type the action to update") ; 
+export const updateGrievance = async (req, res) => {
+    try {
+        const { grievanceId } = req.params;
+        const data = req.body;
+
+        if (!data.action) {
+            return res.status(400).send("Please provide the action to update");
+        }
+
+        const updatedGrievance = await Grievance.findByIdAndUpdate(
+            grievanceId,
+            { status: "Seen", action: data.action },
+            { new: true }
+        );
+
+        if (!updatedGrievance) {
+            return res.status(404).send("Grievance not found");
+        }
+
+        await Action.create({ admin: req.user.id, grievance: grievanceId, action: data.action });
+
+        const userData = await User.findById(updatedGrievance.user);
+        if (!userData) {
+            return res.status(404).send("User not found");
+        }
+
+        sendEmail(
+            userData.email,
+            'Grievance Status Updated',
+            `Hello ${userData.name}, your grievance -> "${updatedGrievance.grievance}" is under consideration. Kindly login and track your grievance.`
+        );
+
+        return res.status(200).send("Updated successfully");
+    } catch (error) {
+        console.error("Error in updating grievance:", error);
+        return res.status(500).send("An error occurred while updating the grievance. Please try again later.");
     }
-    const updatedGrievance = await Grievance.findByIdAndUpdate(grievanceId,{status : "Seen",action : data.action},{new : true}) ;    
-    
-    if (!updatedGrievance){
-        return res.status(404).send("grievance not found") ; 
-    } 
-    await Action.create({admin : req.user.id , grievance : grievanceId , action : data.action}) 
-    const userData = await User.findById(updatedGrievance.user) ; 
-     
-    await sendEmail(userData.email, 'Grievance Status Updated', `Hello ${userData.name}, your grievance -> "${updatedGrievance.grievance}" is under consideration . Kindly login and track your Grievance .` )
-   return res.status(200).send("updated successfully") ;
-}
+};
+
 
 export const grievanceById = async (req, res) => {
     const { grievanceId } = req.params; 

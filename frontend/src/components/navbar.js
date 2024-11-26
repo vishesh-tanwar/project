@@ -11,7 +11,7 @@ const Navbar = () => {
     useEffect(() => {
         const fetchUserData = async () => {
             try {
-                const response = await axios.get("http://localhost:8000/user/validateToken", { 
+                const response = await axios.get("https://project-y58m.onrender.com/user/validateToken", { 
                     withCredentials: true,
                 });
                 // If token is valid, set user details
@@ -30,7 +30,7 @@ const Navbar = () => {
     const handleLogout = async () => {
         try {
             // Clear cookie on server
-            await axios.post("http://localhost:8000/user/logout", {}, { withCredentials: true }); 
+            await axios.post("https://project-y58m.onrender.com/user/logout", {}, { withCredentials: true }); 
             setUser(null);
             setRole(null);
             navigate("/");

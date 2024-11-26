@@ -8,7 +8,7 @@ const ComplaintDetails = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/user/complaints/complaintdetails', {
+                const response = await axios.get('https://project-y58m.onrender.com/user/complaints/complaintdetails', {
                     withCredentials: true
                 });
                 setComplaints(response.data);

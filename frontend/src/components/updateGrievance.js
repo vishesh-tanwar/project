@@ -14,7 +14,7 @@ const UpdateGrievance = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(`http://localhost:8000/admin/grievanceById/${grievanceId}`, { withCredentials: true });
+                const response = await axios.get(`https://project-y58m.onrender.com/admin/grievanceById/${grievanceId}`, { withCredentials: true });
                 if (response.status === 200) {
                     setUserId(response.data.user);
                     setGrievance(response.data.grievance);
@@ -28,7 +28,7 @@ const UpdateGrievance = () => {
 
     const handleUpdate = async () => {
         try {
-            const response = await axios.put(`http://localhost:8000/admin/updateComplaint/${grievanceId}`, { action }, { withCredentials: true });
+            const response = await axios.put(`https://project-y58m.onrender.com/admin/updateComplaint/${grievanceId}`, { action }, { withCredentials: true });
             if (response.status === 200) {
                 alert("Grievance updated successfully");
                 navigate('/dashboard');

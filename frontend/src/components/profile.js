@@ -11,7 +11,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get('http://localhost:8000/user/getProfile', {
+                const response = await axios.get('https://project-y58m.onrender.com/user/getProfile', {
                     withCredentials: true,
                 });
                 setData(response.data);

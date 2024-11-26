@@ -14,7 +14,7 @@ const Register = () => {
 
     const handleSubmit = async () => {
         try {
-            const data = await axios.post("http://localhost:8000/user/register", {
+            const data = await axios.post("https://project-y58m.onrender.com/user/register", {
                 name,
                 email,
                 password,

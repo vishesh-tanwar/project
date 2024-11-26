@@ -27,23 +27,51 @@ export const register = async(req,res) => {
 }
 
 
-export const login = async(req,res) => {
-    const userData = req.body ; 
-    const data = await User.findOne({email : userData.email})
-    if (!data) { 
-        return res.status(409).send("wrong credentials");
+// export const login = async(req,res) => {
+//     const userData = req.body ; 
+//     const data = await User.findOne({email : userData.email})
+//     if (!data) { 
+//         return res.status(409).send("wrong credentials");
+//     }
+//     if (!bcrypt.compare(userData.password,data.password)) {
+//         return res.status(409).send("wrong credentials");
+//     }
+//     const jwttoken = data.generateJWTToken();
+//     res.cookie("token",jwttoken,{
+//         httpOnly: true, // Always a good practice
+//         secure : true ,
+//         maxAge : 20 * 24 * 60 * 1000 
+//     })  
+//     return res.status(200).send("login successful") 
+// } 
+export const login = async (req, res) => {
+    try {
+        const { email, password } = req.body;
+        const user = await User.findOne({ email });
+        if (!user) {
+            return res.status(409).send("Wrong credentials");
+        }
+
+        const isPasswordValid = await bcrypt.compare(password, user.password);
+        if (!isPasswordValid) {
+            return res.status(409).send("Wrong credentials");
+        }
+
+        const jwttoken = user.generateJWTToken();
+        res.cookie("token", jwttoken, {
+            httpOnly: true,
+            secure: true, // For HTTPS
+            sameSite: "none", // For cross-origin requests
+            maxAge: 20 * 24 * 60 * 60 * 1000, // 20 days
+        });
+
+        return res.status(200).send("Login successful");
+    } catch (error) {
+        console.error("Error during login:", error);
+        return res.status(500).send("An error occurred");
     }
-    if (!bcrypt.compare(userData.password,data.password)) {
-        return res.status(409).send("wrong credentials");
-    }
-    const jwttoken = data.generateJWTToken();
-    res.cookie("token",jwttoken,{
-        httpOnly: true, // Always a good practice
-        secure : true ,
-        maxAge : 20 * 24 * 60 * 1000 
-    })  
-    return res.status(200).send("login successful") 
-} 
+};
+
 
 export const getProfile = async(req,res) => {
     const userId = req.user.id ;

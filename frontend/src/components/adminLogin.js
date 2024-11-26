@@ -15,7 +15,7 @@ const AdminLogin = () => {
     const handleLogin = async () => {
         try {
             const response = await axios.post(
-                'http://localhost:8000/admin/login',
+                'https://project-y58m.onrender.com/admin/login',
                 { email, password },
                 { withCredentials: true }
             );

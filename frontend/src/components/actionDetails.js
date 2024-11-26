@@ -6,7 +6,8 @@ const ActionDetails = () => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get(
-        "http://localhost:8000/admin/actionDetails",
+        // "http://localhost:8000/admin/actionDetails",
+        "https://project-y58m.onrender.com/admin/actionDetails", 
         { withCredentials: true }
       ); 
       setActions(response.data); 

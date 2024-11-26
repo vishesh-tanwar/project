@@ -1,5 +1,5 @@
 import Admin from "../model/adminModel.js"; 
-import bcrypt from "bcrypt" ; 
+import bcrypt from "bcryptjs" ; 
 import Grievance from "../model/grievanceModel.js";
 import Action from "../model/actionModel.js";
 import sendEmail from "../config/email.js";

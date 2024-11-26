@@ -39,6 +39,7 @@ export const login = async(req,res) => {
     const jwttoken = data.generateJWTToken();
     res.cookie("token",jwttoken,{
         httpOnly: true, // Always a good practice
+        secure : true ,
         maxAge : 20 * 24 * 60 * 1000 
     })  
     return res.status(200).send("login successful") 

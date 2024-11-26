@@ -16,7 +16,7 @@ const Dashboard = () => {
       try {
         const response = await axios.get(
           // "http://localhost:8000/admin/allGrievance",
-          'https://project-y58m.onrender.com/admin/allGrievance', 
+          'https://project-y58m.onrender.com/admin/allGrievance',  
           {
             withCredentials: true,
           }

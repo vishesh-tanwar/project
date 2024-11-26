@@ -25,7 +25,13 @@ export const loginAdmin = async(req,res) => {
         return res.status(404).send("wrong credentials") ;
     }
     const token = data.generateJWTTokenAdmin() ;
-    res.cookie("token",token) 
+    // res.cookie("token",token) 
+    res.cookie('token', token, {
+        httpOnly: true,
+        secure: true, // Use true if running on HTTPS
+        sameSite: 'None', // Allows cookies for cross-origin requests
+      });
+      
 
     return res.status(200).send("login successful") ;
 }

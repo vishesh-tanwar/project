@@ -1,0 +1,95 @@
+/* General body styling */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9; /* Light grey background */
+}
+
+/* Centering the register form */
+.register-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Styling the form box */
+.register-box {
+    background-color: #ffffff; /* White background */
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Headings */
+.register-box h1 {
+    font-size: 2rem;
+    color: #333333; /* Dark grey text */
+    margin-bottom: 1rem;
+}
+
+.register-box h3 {
+    font-size: 1rem;
+    color: #666666; /* Medium grey */
+    margin: 0.5rem 0;
+}
+
+/* Input fields */
+.register-box input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #495057; /* Dark grey text */
+    background-color: #f8f9fa;
+}
+
+.register-box input:focus {
+    border-color: #17a2b8; /* Light blue border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 4px rgba(23, 162, 184, 0.5); /* Glow effect */
+}
+
+/* Button styling */
+.register-box button {
+    background-color: #007bff; /* Blue button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.register-box button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Success/error message styling */
+.register-box p {
+    margin-top: 1rem;
+    font-size: 1rem;
+    color: #28a745; /* Green text for success */
+}
+
+.register-box p.error {
+    color: #dc3545; /* Red text for error */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .register-box {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}

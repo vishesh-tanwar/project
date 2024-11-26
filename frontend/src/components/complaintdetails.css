@@ -1,0 +1,64 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    margin: 0;
+}
+
+/* Container for the table */
+.complaint-details-container {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Table styling */
+table {
+    width: 80%;
+    margin: 20px 0;
+    border-collapse: collapse; /* Remove gaps between cells */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the table */
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+/* Table headers */
+th {
+    background-color: #007bff;
+    color: #ffffff;
+    padding: 10px;
+    text-align: left;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+/* Table rows */
+td {
+    background-color: #ffffff;
+    padding: 10px;
+    text-align: left;
+    border-top: 1px solid #f1f1f1;
+}
+
+/* Hover effect for table rows */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* Date formatting */
+td:last-child {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* Make the table responsive on smaller screens */
+@media (max-width: 768px) {
+    table {
+        width: 95%;
+    }
+
+    th, td {
+        font-size: 0.9rem;
+    }
+}

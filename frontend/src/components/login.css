@@ -1,0 +1,96 @@
+/* Center the login page */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa; /* Light background */
+}
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #f8f9fa;
+}
+
+/* Styling for the login card */
+.login-card {
+    background-color: #ffffff; /* White background */
+    padding: 2rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    border-radius: 10px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+/* Headings styling */
+.login-card h1 {
+    font-size: 2rem;
+    color: #343a40; /* Dark grey */
+    margin-bottom: 1rem;
+}
+
+.login-card h3 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+    color: #6c757d; /* Medium grey */
+}
+
+/* Input styling */
+.login-card input {
+    width: 100%;
+    padding: 0.8rem;
+    margin: 0.5rem 0;
+    border: 1px solid #ced4da; /* Light grey border */
+    border-radius: 5px;
+    font-size: 1rem;
+    color: #495057; /* Darker grey text */
+    background-color: #f8f9fa;
+}
+
+.login-card input:focus {
+    border-color: #17a2b8; /* Light blue border on focus */
+    outline: none; /* Remove default outline */
+    box-shadow: 0 0 4px rgba(23, 162, 184, 0.5); /* Glow effect */
+}
+
+/* Button styling */
+.login-card button {
+    background-color: #17a2b8; /* Light blue button */
+    color: #ffffff; /* White text */
+    border: none;
+    border-radius: 5px;
+    padding: 0.8rem 1.2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.login-card button:hover {
+    background-color: #138496; /* Darker blue on hover */
+}
+
+/* Admin login link styling */
+.login-card h4 {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #007bff; /* Blue text */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.login-card h4:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 768px) {
+    .login-card {
+        width: 95%;
+        padding: 1.5rem;
+    }
+}

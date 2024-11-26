@@ -1,0 +1,43 @@
+/* Navbar layout styles */
+nav {
+    background-color: #333;
+    padding: 10px 20px;
+  }
+  
+  .nav-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-list li {
+    margin-right: 20px; /* Space between list items */
+  }
+  
+  .nav-list li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .nav-list .logout {
+    margin-left: auto; /* Push logout button to the extreme right */
+  }
+  
+  .nav-list li button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+  }
+  
+  .nav-list li button:hover {
+    background-color: #e60000;
+  }
+  

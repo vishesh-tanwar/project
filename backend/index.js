@@ -12,7 +12,7 @@ dotenv.config();
 const app = express() ;
 
 app.use(cors({
-    origin : "http://localhost:3000" , credentials : true 
+    origin : "https://project-frontend-ehku.onrender.com" , credentials : true 
 }))
 
 // Middleware to parse incoming request body as JSON

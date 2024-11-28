@@ -10,7 +10,7 @@ const Admins = () => {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:8000/admin/allAdmins", 
+                    "https://project-y58m.onrender.com/admin/allAdmins", 
                     { withCredentials: true }
                 );
                 setAdmins(response.data); 

@@ -11,6 +11,7 @@ import ActionDetails from "./components/actionDetails.js";
 import Navbar from "./components/navbar.js";
 import Home from "./components/home.js";
 import Admins from "./components/admins.js";
+import AdminRegister from "./components/adminRegister.js"; 
 
 const App = () => {
   return (
@@ -28,6 +29,8 @@ const App = () => {
           <Route path="/updateGrievance/:grievanceId" element={<UpdateGrievance/>}/>
           <Route path="/actionDetails" element={<ActionDetails/>} /> 
           <Route path="/allAdmins" element={<Admins/>}/> 
+          <Route path="/cvh-admin" element={<AdminRegister/>}/>  
+
       </Routes>
     </BrowserRouter>
   )

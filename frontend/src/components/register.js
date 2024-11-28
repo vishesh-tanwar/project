@@ -12,7 +12,31 @@ const Register = () => {
     const handleEmail = (e) => setEmail(e.target.value);
     const handlePass = (e) => setPassword(e.target.value);
 
+    // const handleSubmit = async () => {
+    //     try {
+    //         const data = await axios.post("https://project-y58m.onrender.com/user/register", {
+    //             name,
+    //             email,
+    //             password,
+    //         });
+    //         if (data) {
+    //             setMessage("Registration successful!");
+    //         }
+    //     } catch (e) {
+    //         console.error(e);
+    //         setMessage("Internal server error. Try reloading the page.");
+    //     }
+    // };
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
     const handleSubmit = async () => {
+        // Check if the email format is valid
+        if (!emailRegex.test(email)) {
+            setMessage("Invalid email format. Please enter a valid email.");
+            return;
+        }
+    
         try {
             const data = await axios.post("https://project-y58m.onrender.com/user/register", {
                 name,
@@ -24,10 +48,15 @@ const Register = () => {
             }
         } catch (e) {
             console.error(e);
-            setMessage("Internal server error. Try reloading the page.");
+            if (e.response && e.response.status === 409) {
+                setMessage("User already exists.");
+            } else {
+                setMessage("Internal server error. Try reloading the page.");
+            }
         }
     };
 
+    
     return (
         <div className="register-container">
             <div className="register-box">

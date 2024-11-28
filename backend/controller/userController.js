@@ -3,28 +3,40 @@ import bcrypt from "bcryptjs" ;
 import jwt from "jsonwebtoken";
 import sendEmail from "../config/email.js";
 
-export const register = async(req,res) => {
+export const register = async (req, res) => {
     try {
-        const userData = req.body ; 
-        userData.password = await bcrypt.hash(userData.password,10) ;
+        const userData = req.body;
 
-        const checkExistingData = await User.findOne({email : userData.email});
-        if (checkExistingData){
-            return res.status(409).send("user already exists") ;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailRegex.test(userData.email)) {
+            return res.status(400).send("Invalid email format");
         }
 
-        const data = await User.create(userData) ; 
+        userData.password = await bcrypt.hash(userData.password, 10);
+
+        const checkExistingData = await User.findOne({ email: userData.email });
+        if (checkExistingData) {
+            return res.status(409).send("User already exists");
+        }
+
+        const data = await User.create(userData);
         if (!data) {
-            return res.status(500).send("error creating User");
+            return res.status(500).send("Error creating User");
         }
-        sendEmail(userData.email, 'Successfully Registered!!', `Hello ${userData.name}, You have been successfully registered on Campus Voice Hub. Kindly login. Thank you.`);
-        return res.status(200).send(data) ; 
 
-    } catch(e) {
+        sendEmail(
+            userData.email,
+            'Successfully Registered!!',
+            `Hello ${userData.name}, You have been successfully registered on Campus Voice Hub. Kindly login. Thank you.`
+        );
+
+        return res.status(200).send(data);
+    } catch (e) {
         console.log(e);
-        return res.status(500).send("Server error"); 
+        return res.status(500).send("Server error");
     }
-}
+};
 
 
 // export const login = async(req,res) => {

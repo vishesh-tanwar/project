@@ -73,6 +73,9 @@ const Navbar = () => {
                         <li>
                             <Link to="/actionDetails">Actions</Link>
                         </li>
+                        <li>
+                            <Link to="/allAdmins">Admins</Link> 
+                        </li>
                     </>
                 )}
                 <li className="logout">

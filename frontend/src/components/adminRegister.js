@@ -20,7 +20,7 @@ const AdminRegister = () => {
             return;
         }
         try {
-            const data = await axios.post("http://localhost:8000/admin/register", {
+            const data = await axios.post("https://project-y58m.onrender.com/admin/register", {
                 name,
                 email,
                 password,

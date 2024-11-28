@@ -10,6 +10,7 @@ import UpdateGrievance from "./components/updateGrievance.js";
 import ActionDetails from "./components/actionDetails.js";
 import Navbar from "./components/navbar.js";
 import Home from "./components/home.js";
+import Admins from "./components/admins.js";
 
 const App = () => {
   return (
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/dashboard" element={<Dashboard/>}/> 
           <Route path="/updateGrievance/:grievanceId" element={<UpdateGrievance/>}/>
           <Route path="/actionDetails" element={<ActionDetails/>} /> 
+          <Route path="/allAdmins" element={<Admins/>}/> 
       </Routes>
     </BrowserRouter>
   )

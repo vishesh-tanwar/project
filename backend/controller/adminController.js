@@ -5,15 +5,36 @@ import Action from "../model/actionModel.js";
 import sendEmail from "../config/email.js";
 import User from "../model/userModel.js";
 
-export const create = async(req,res) => {
-    const data = req.body ;
-    if (!data){
-        res.status(401).send("empty fields") 
+export const create = async (req, res) => {
+    try {
+        const data = req.body;
+
+        if (!data || !data.name || !data.email || !data.password) {
+            return res.status(400).send("All fields are required.");
+        }
+
+        data.password = await bcrypt.hash(data.password, 10);
+
+        const existingAdmin = await Admin.findOne({ email: data.email });
+        if (existingAdmin) {
+            return res.status(409).send("Admin with this email already exists.");
+        }
+
+        const admin = await Admin.create(data);
+
+        return res.status(201).send({
+            message: "Admin created successfully.",
+            admin: {
+                id: admin._id,
+                name: admin.name,
+                email: admin.email,
+            },
+        });
+    } catch (error) {
+        console.error("Error creating admin:", error);
+        return res.status(500).send("Server error. Unable to create admin.");
     }
-    data.password = bcrypt.hash(data.password,10);
-    await Admin.create(data);
-    return res.status(200).send(data) ;
-}
+};
 
 export const loginAdmin = async(req,res) => {
     const adminData = req.body ; 

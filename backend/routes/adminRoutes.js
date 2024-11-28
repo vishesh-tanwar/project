@@ -1,5 +1,5 @@
 import express from 'express';
-import { actionDetails, allGrievances, create, deleteGrievance, filterGrievance, grievanceById, loginAdmin, statusFilter, updateGrievance } from '../controller/adminController.js';
+import { actionDetails, allAdmins ,allGrievances, create, deleteGrievance, filterGrievance, grievanceById, loginAdmin, statusFilter, updateGrievance } from '../controller/adminController.js';
 import isLoggedIn from '../middleware/authentication.js';
 import isAdmin from '../middleware/authorization.js';
 
@@ -14,4 +14,6 @@ router.delete('/deleteGrievance/:grievanceId',isLoggedIn,isAdmin , deleteGrievan
 router.post('/filterGrievance',isLoggedIn,isAdmin,filterGrievance) ; 
 router.post('/statusFilter',isLoggedIn,isAdmin,statusFilter) ;
 router.get('/actionDetails',isLoggedIn,isAdmin,actionDetails) ;  
+router.get('/allAdmins',isLoggedIn,isAdmin,allAdmins) ;
+
 export default router ; 

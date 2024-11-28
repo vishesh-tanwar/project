@@ -14,15 +14,21 @@ const Login = () => {
     const handleSubmit = async () => {
         try {
             const response = await axios.post(
-                "https://project-y58m.onrender.com/user/login",
+                "http://localhost:8000/user/login",
                 { email, password },
                 { withCredentials: true }
             );
-            if (response) {
+    
+            if (response && response.status === 200) {
                 navigate("/profile");
             }
         } catch (e) {
-            console.error(e);
+            if (e.response && e.response.status === 409) {
+                window.alert("Wrong Credentials !!");
+            } else {
+                console.error(e);
+                window.alert("Something went wrong. Please try again later.");
+            }
         }
     };
 

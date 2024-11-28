@@ -167,3 +167,16 @@ export const actionDetails = async(req,res) => {
     const Data = await Action.find().populate('admin','name').populate('grievance','grievance') ;  
     res.status(200).send(Data) ;  
 } 
+
+export const allAdmins = async (req, res) => {
+    try {
+        const adminData = await Admin.find();
+        if (!adminData || adminData.length === 0) {
+            return res.status(404).send("No admins found");
+        }
+        return res.status(200).json(adminData);
+    } catch (e) {
+        console.error(e);
+        return res.status(500).send("Error fetching Admin Data");
+    }
+}; 

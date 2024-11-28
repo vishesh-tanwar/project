@@ -59,7 +59,7 @@ export const loginAdmin = async(req,res) => {
 
 export const allGrievances = async(req,res) => {
     try {
-        const data = await Grievance.find().populate('user','name') ;  
+        const data = await Grievance.find().populate('user','name').sort({ date: -1 }); ;  
         if (data) {
             return res.status(200).send(data) ;
         }

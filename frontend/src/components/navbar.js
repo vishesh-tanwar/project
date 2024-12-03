@@ -63,6 +63,9 @@ const Navbar = () => {
                         <li>
                             <Link to="/fileComplaint">File Complaint</Link>
                         </li>
+                        <li>
+                            <Link to="/complaintDetails">Grievance Details</Link>
+                        </li>
                     </>
                 )}
                 {user && role === "admin" && (

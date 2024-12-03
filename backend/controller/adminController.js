@@ -36,26 +36,53 @@ export const create = async (req, res) => {
     }
 };
 
-export const loginAdmin = async(req,res) => {
-    const adminData = req.body ; 
-    const data = await Admin.findOne({email : adminData.email}) ;
-    if (!data) {
-        return res.status(404).send("wrong credentials") ; 
-    } 
-    if (!bcrypt.compare(adminData.password,data.password)) {
-        return res.status(404).send("wrong credentials") ;
-    }
-    const token = data.generateJWTTokenAdmin() ;
-    // res.cookie("token",token) 
-    res.cookie('token', token, {
-        httpOnly: true,
-        secure: true, // Use true if running on HTTPS
-        sameSite: 'None', // Allows cookies for cross-origin requests
-      });
+// export const loginAdmin = async(req,res) => {
+//     const adminData = req.body ; 
+//     const data = await Admin.findOne({email : adminData.email}) ;
+//     if (!data) {
+//         return res.status(404).send("wrong credentials") ; 
+//     } 
+//     if (!bcrypt.compare(adminData.password,data.password)) {
+//         return res.status(404).send("wrong credentials") ;
+//     }
+//     const token = data.generateJWTTokenAdmin() ;
+//     // res.cookie("token",token) 
+//     res.cookie('token', token, {
+//         httpOnly: true,
+//         secure: true, // Use true if running on HTTPS
+//         sameSite: 'None', // Allows cookies for cross-origin requests
+//       });
       
 
-    return res.status(200).send("login successful") ;
-}
+//     return res.status(200).send("login successful") ;
+// }
+
+export const loginAdmin = async (req, res) => {
+    try {
+        const adminData = req.body;  
+        const data = await Admin.findOne({ email: adminData.email });
+        if (!data) {
+            return res.status(404).send("Wrong credentials");
+        }
+
+        const isPasswordValid = await bcrypt.compare(adminData.password, data.password);
+        if (!isPasswordValid) {
+            return res.status(401).send("Wrong credentials");
+        }
+
+        const token = data.generateJWTTokenAdmin();
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true, 
+            sameSite: 'None', 
+        });
+
+        return res.status(200).send("Login successful");
+    } catch (error) {
+        console.error("Error in loginAdmin:", error);
+        return res.status(500).send("Internal server error");
+    }
+};
 
 export const allGrievances = async(req,res) => {
     try {

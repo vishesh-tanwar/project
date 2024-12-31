@@ -1,7 +1,7 @@
 /* General Container */
 .dashboard-container {
     padding: 20px;
-    background-color: #f8f9fa;
+    background-color: #92d7e3;
     border-radius: 8px;
     margin-top: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -55,7 +55,7 @@ table {
 
 /* Table Headers */
 th {
-    background-color: #007bff;
+    background-color: #033135;
     color: white;
     padding: 12px;
     text-align: left;
@@ -64,7 +64,7 @@ th {
 
 /* Table Data */
 td {
-    background-color: #ffffff;
+    background-color: #b7ecf7;
     padding: 10px;
     border-top: 1px solid #f1f1f1;
 }
@@ -78,14 +78,14 @@ tr:hover {
 button {
     padding: 6px 12px;
     font-size: 0.9rem;
-    background-color: #28a745;
+    background-color: #003135;
     color: white;
     border-radius: 4px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #218838;
+    background-color: #03313595;
 }
 
 /* Delete button styling */

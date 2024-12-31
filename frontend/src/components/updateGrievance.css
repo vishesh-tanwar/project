@@ -1,9 +1,9 @@
 /* Container for the form */
 .update-grievance-container {
     max-width: 500px;
-    margin: 0 auto;
+    margin: 88px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #92d7e3;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
@@ -19,6 +19,7 @@
   .update-grievance-container input {
     width: 100%;
     padding: 10px;
+    margin-left: -12px;
     margin-bottom: 15px;
     font-size: 16px;
     border: 1px solid #ccc;
@@ -27,9 +28,10 @@
   
   /* Button styles */
   .update-grievance-container button {
+    margin-left: -1px;
     width: 100%;
     padding: 12px;
-    background-color: #28a745;
+    background-color: #033135;
     color: white;
     font-size: 16px;
     border: none;
@@ -38,7 +40,7 @@
   }
   
   .update-grievance-container button:hover {
-    background-color: #218838;
+    background-color: #03313584;
   }
   
   /* Optional: Make the inputs and button look better */

@@ -1,6 +1,6 @@
 /* Navbar layout styles */
 nav {
-    background-color: #333;
+    background-color: #0FA4AF;
     padding: 10px 20px;
   }
   
@@ -18,9 +18,14 @@ nav {
   }
   
   .nav-list li a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
-    font-size: 16px;
+    font-size: 18.5px;
+    font-weight: bold;
+  }
+
+  .nav-list li a:hover {
+    color : rgb(96, 0, 251)
   }
   
   .nav-list .logout {

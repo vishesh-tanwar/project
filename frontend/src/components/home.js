@@ -1,8 +1,8 @@
 import React from "react";
 import "./home.css";
 import img from "../images/bvp.jpeg"
-import bvpLogo from "../images/bvpLogo.jpeg" 
-import guy from "../images/guy.jpeg" 
+import bvpLogo from "../images/bvpLogo1.png" 
+import guy from "../images/guy1.png" 
 
 export default function Home() {
   return (

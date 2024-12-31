@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f8f9fa; /* Light background */
+    background-color: #AFDDE5; /* Light background */
 }
 
 .admin-login-container {
@@ -11,12 +11,12 @@ body {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #f8f9fa;
+    background-color: #AFDDE5;
 }
 
 /* Styling for the admin login card */
 .admin-login-card {
-    background-color: #ffffff; /* White background */
+    background-color: #92d7e3; /* White background */
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
     border-radius: 10px;
@@ -42,7 +42,7 @@ body {
 .admin-login-card input {
     width: 100%;
     padding: 0.8rem;
-    margin: 0.5rem 0;
+    margin: 0.5rem -13px;
     border: 1px solid #ced4da; /* Light grey border */
     border-radius: 5px;
     font-size: 1rem;
@@ -58,7 +58,7 @@ body {
 
 /* Button styling */
 .admin-login-card button {
-    background-color: #28a745; /* Green button */
+    background-color: #004146; /* Green button */
     color: #ffffff; /* White text */
     border: none;
     border-radius: 5px;
@@ -69,6 +69,7 @@ body {
     transition: background-color 0.3s ease;
     width: 100%;
     margin-top: 1rem;
+    margin-right: 10px;
 }
 
 .admin-login-card button:hover {

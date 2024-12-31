@@ -2,7 +2,7 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f4f4f9; /* Light grey background */
+    background-color: #ffffff; /* Light grey background */
 }
 
 /* Center the profile page content */
@@ -17,7 +17,8 @@ body {
 
 /* Profile box styling */
 .profile-box {
-    background-color: #ffffff; /* White background */
+    margin-top: -99px;
+    background-color: #92d7e3; /* White background */
     padding: 2rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow */
     border-radius: 10px;
@@ -59,7 +60,7 @@ body {
 
 /* Button styling */
 .profile-box button {
-    background-color: #007bff; /* Blue button */
+    background-color: #033135; /* Blue button */
     color: #ffffff; /* White text */
     border: none;
     border-radius: 5px;
@@ -73,7 +74,7 @@ body {
 }
 
 .profile-box button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #00462e; /* Darker blue on hover */
 }
 
 /* Responsive design for smaller screens */

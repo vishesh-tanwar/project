@@ -1,91 +1,143 @@
 .all {
     width: 100%;
-    height: 620px;
+    height: 100vh; /* Full viewport height */
     position: relative;
     overflow: hidden;
     margin-top: 10.5px;
 }
+
 .bvp {
     height: 100%;
     width: 100%;
     position: absolute;
     z-index: 0; 
-    -webkit-mask-image:linear-gradient(to left, black,rgba(0, 0, 0, 0) 60%);
+    -webkit-mask-image: linear-gradient(to left, black, rgba(0, 0, 0, 0) 60%);
     mask-image: linear-gradient(to left, black , rgba(0, 0, 0, 0) 60%);
+    object-fit: cover;
 }
+
 .headingandimage {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    align-items: flex-start;
-    margin: 70px 0px;
+    align-items: left;
+    margin: 5% auto;
     position: relative; 
     z-index: 1; 
-    max-width: 50%;
+    max-width: 90%;
     text-align: center;
-    color: rgb(0, 0, 0);
+    color: #000;
 }
 
 .text {
     max-width: 100%; 
     text-align: center;
+    font-weight: 1000;
 }
 
 .text img {
     display: block;
     margin: 0 auto;
-    width: 50%; 
+    width: 60%; /* relative to parent */
+    max-width: 300px;
 }
 
 .text h1 {
-    margin: 20px;
-    padding: 0;
-    font-size: 3em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 20px 0;
+    font-size: 2rem; /* scales with screen */
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 1000;
 }
 
 .text p {
     margin-top: 10px;
-    font-size: 0.75em;
-    margin-left: 40px;
-    margin-right: 40px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1rem;
+    margin: 0 5%;
+    line-height: 1.5;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 1000;
+    color: #000000;
+    background-color: rgba(179, 245, 245, 0.037);
+}
+
+.text h5 {
+    margin-top: 10px;
+    font-size: 1rem;
+    margin: 0 5%;
+    line-height: 1.5;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    font-weight: 1000;
+    color: #000000;
+    background-color: rgba(179, 245, 245, 0.037);
 }
 
 .howtofile {
     display: flex;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-.photo {
-    padding-top: 10px;
+    flex-direction: column; /* stacked by default (mobile-first) */
+    align-items: center;
+    margin: 40px 0 20px;
+    gap: 20px;
 }
 
 .photo img {
-    width: 300px; 
+    width: 80%; 
+    max-width: 350px; 
     height: auto; 
     object-fit: contain;
-    margin-left: 200px;   
 }
 
 .text2 {
-    margin-left: 50px;
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 20px;
+    width: 90%;
+    max-width: 500px;
+    text-align: left;
 }
 
 .text2 h2 {
-    margin-bottom: 7px;
-    padding-left: 110px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-.howtofile li {
-    margin: 5px 0;
-    font-size: 0.78em;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    text-align: center;
 }
 
-.howtofile .text2 {
-    border: 2px solid black;
-    border-radius: 5%;
-    padding: 10px 10px 10px 25px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+.howtofile li {
+    margin: 5px 0;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* ✅ Responsive Layouts */
+@media (min-width: 768px) {
+    .headingandimage {
+        flex-direction: row;
+        max-width: 70%;
+        text-align: left;
+    }
+
+    .howtofile {
+        flex-direction: row;
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .photo img {
+        margin: 0;
+        width: 250px;
+    }
+
+    .text2 {
+        width: auto;
+    }
+}
+
+@media (min-width: 1200px) {
+    .text h1 {
+        font-size: 3rem;
+    }
+
+    .text p {
+        font-size: 1.1rem;
+    }
 }

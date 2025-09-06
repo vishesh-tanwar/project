@@ -1,48 +1,44 @@
 import React from "react";
 import "./home.css";
-import img from "../images/bvp.jpeg"
-import bvpLogo from "../images/bvpLogo1.png" 
-import guy from "../images/guy1.png" 
+import img from "../images/bvp.jpeg";
+import bvpLogo from "../images/bvpLogo1.png";
+import guy from "../images/guy1.png";
 
 export default function Home() {
   return (
     <>
-    <div className="all">
-      <img className="bvp" src={img} alt="bvp"/> 
-      <div className="gradient"></div>
-      
-      <div className="headingandimage">
-        <div className="text">
-          <img
-            src={bvpLogo} 
-            alt="logo"
-          />
-          <h1>Campus Voice Hub</h1>
-          <h3>
-            BHARATI VIDYAPEETH'S INSTITUTE OF COMPUTER APPLICATIONS & MANAGEMENT
-          </h3>
-          <h5>
-            A-4, Paschim Vihar, Rohtak Road, New Delhi-110 063.<br></br>
-          </h5>
-          <br></br>
-          <p>
-            Welcome to the BVICAM Institute Grievance Portal. This platform is
-            dedicated to addressing and resolving any issues or concerns you may
-            have during your time at BVICAM. We are committed to fostering a
-            supportive and transparent environment, ensuring that your voice is
-            heard and your grievances are handled promptly and fairly. Whether
-            you are a student, faculty member, or staff, we are here to assist
-            you and ensure a positive experience within our community.
-          </p>
+      <div className="all">
+        <img className="bvp" src={img} alt="bvp" />
+        <div className="gradient"></div>
+
+        <div className="headingandimage">
+          <div className="text">
+            <img src={bvpLogo} alt="logo" />
+            <h1>Campus Voice Hub</h1>
+            <h3>
+              BHARATI VIDYAPEETH'S INSTITUTE OF COMPUTER APPLICATIONS &
+              MANAGEMENT
+            </h3>
+            <h5>
+              A-4, Paschim Vihar, Rohtak Road, New Delhi-110 063.<br></br>
+            </h5>
+            <br></br>
+            <p>
+              Welcome to the BVICAM Institute Grievance Portal. This platform is
+              dedicated to addressing and resolving any issues or concerns you
+              may have during your time at BVICAM. We are committed to fostering
+              a supportive and transparent environment, ensuring that your voice
+              is heard and your grievances are handled promptly and fairly.
+              Whether you are a student, faculty member, or staff, we are here
+              to assist you and ensure a positive experience within our
+              community.
+            </p>
+          </div>
         </div>
       </div>
-    </div>
       <div className="howtofile">
         <div className="photo">
-          <img
-            src={guy}
-            alt="Grievance Portal"
-          />
+          <img src={guy} alt="Grievance Portal" />
         </div>
         <div className="text2">
           <h2>How To File a Grievance</h2>
